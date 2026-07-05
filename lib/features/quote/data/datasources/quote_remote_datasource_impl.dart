@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:quote_app_with_supabase/core/error/app_exception.dart';
 import 'package:quote_app_with_supabase/features/quote/data/datasources/quotes_remote_datasource.dart';
@@ -21,18 +22,21 @@ class QuotesRemoteDatasourceImpl implements QuotesRemoteDatasource {
     try {
       final List<Map<String, dynamic>> response = await supabase
           .from('quotes')
-          .select();
+          .select()
+          .limit(20);
       final List<QuoteModel> quotes = response
           .map((e) => QuoteModel.fromMap(e))
           .toList();
       return quotes;
     } on PostgrestException catch (e) {
-      throw AppException(e.message);
+      debugPrint(e.message);
+      throw AppException("Server error please try again later");
     } on TimeoutException {
       throw AppException(
         'Request timeout please check your internet connection',
       );
     } catch (e) {
+      debugPrint(e.toString());
       throw AppException('Unknown exception');
     }
   }
