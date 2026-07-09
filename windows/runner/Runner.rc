@@ -92,10 +92,10 @@ BEGIN
             VALUE "CompanyName", "com.example" "\0"
             VALUE "FileDescription", "quote_app_with_supabase" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "quote_app_with_supabase" "\0"
+            VALUE "InternalName", "QuoteX" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2026 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "quote_app_with_supabase.exe" "\0"
-            VALUE "ProductName", "quote_app_with_supabase" "\0"
+            VALUE "OriginalFilename", QuoteX.exe" "\0"
+            VALUE "ProductName", "QuoteX" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
